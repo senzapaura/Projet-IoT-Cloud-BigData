@@ -6,7 +6,7 @@ from pyspark.sql.functions import col, mean
 import numpy as np
 from cassandra.cluster import Cluster
 
-class CassandraHandler:
+class HouseCassandraHandler:
     def __init__(self, create_keyspace_command, data):
         self.cluster = Cluster()
         self.session = self.cluster.connect()
@@ -35,7 +35,7 @@ class CassandraHandler:
     def close(self):
         self.cluster.shutdown()
 
-def retrieve_data(consumer, topic):
+def fetch_house_data(consumer, topic):
     consumer.subscribe([topic])
     house_data = []
     print("Waiting for messages...")
@@ -72,7 +72,7 @@ def retrieve_data(consumer, topic):
     print("Completed")
     return house_data
 
-def preprocess_data(house_data):
+def preprocess_house_data(house_data):
     spark = SparkSession.builder.appName('HouseData').getOrCreate()
     spark.sparkContext.setLogLevel("ERROR")
 
@@ -105,8 +105,8 @@ consumer_conf = {
 }
 
 consumer = Consumer(consumer_conf)
-house_data = retrieve_data(consumer, "house_data")
-preprocessed_data = preprocess_data(house_data)
+house_data = fetch_house_data(consumer, "house_data")
+preprocessed_data = preprocess_house_data(house_data)
 
 # Cassandra keyspace configuration
 keyspace_name = 'HousePrices'
@@ -118,5 +118,5 @@ create_keyspace_query = f"""
     WITH replication = {{'class': '{replication_strategy}', 'replication_factor': {replication_factor}}};
 """
 
-cassandra = CassandraHandler(create_keyspace_query, preprocessed_data)
-cassandra.close()
+cassandra_handler = HouseCassandraHandler(create_keyspace_query, preprocessed_data)
+cassandra_handler.close()
