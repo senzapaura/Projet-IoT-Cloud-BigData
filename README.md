@@ -19,5 +19,5 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 ### Étape 1 : Cloner le Répertoire
 
 ```bash
-git clone https://github.com/yourusername/house-price-prediction.git
+git clone https://github.com/senzapaura/house-price-prediction.git
 cd house-price-prediction
