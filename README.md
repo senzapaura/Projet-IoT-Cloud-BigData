@@ -21,3 +21,31 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 ```bash
 git clone https://github.com/senzapaura/house-price-prediction.git
 cd house-price-prediction
+```
+
+### Étape 2 : Installer les Paquets Python Requis
+
+Créez un environnement virtuel et installez les paquets requis en utilisant le fichier requirements.txt fourni.
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+
+### Étape 3 : Démarrer Hadoop HDFS
+
+Assurez-vous que Hadoop est installé et configuré. Démarrez les services HDFS.
+
+```bash
+start-dfs.sh
+```
+### Étape 4 : Démarrer Kafka
+
+Assurez-vous que Kafka est installé et configuré. Démarrez le serveur Kafka.
+
+```bash
+kafka-server-start.sh /path/to/kafka/config/server.properties
+```
+
