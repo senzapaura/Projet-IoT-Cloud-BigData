@@ -49,3 +49,41 @@ Assurez-vous que Kafka est installé et configuré. Démarrez le serveur Kafka.
 kafka-server-start.sh /path/to/kafka/config/server.properties
 ```
 
+### Étape 5 : Démarrer Cassandra
+
+Assurez-vous que Cassandra est installé et configuré. Démarrez le serveur Cassandra.
+
+```bash
+cassandra -f
+```
+
+### Étape 5 : Démarrer Cassandra
+
+Assurez-vous que Cassandra est installé et configuré. Démarrez le serveur Cassandra.
+
+```bash
+mongod --config /path/to/mongodb/config/mongod.conf
+```
+
+## Installation
+
+### Étape 1 : Prétraiter les Données
+
+Exécutez le script de prétraitement des données pour lire les données depuis Kafka, les traiter avec Spark, et les stocker dans Cassandra.
+
+```bash
+python house_data_preprocess.py
+```
+
+### Étape 2 : Lire les Données depuis HDFS et les Envoyer à Kafka
+
+Exécutez le script pour lire les données immobilières depuis HDFS et les envoyer à Kafka.
+
+
+```bash
+python hdfs_house_read.py
+```
+
+### Étape 3 : Démarrer l'API Flask
+
+
