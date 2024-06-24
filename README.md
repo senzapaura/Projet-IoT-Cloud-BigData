@@ -65,7 +65,7 @@ Assurez-vous que Cassandra est installé et configuré. Démarrez le serveur Cas
 mongod --config /path/to/mongodb/config/mongod.conf
 ```
 
-## Installation
+## Utilisation
 
 ### Étape 1 : Prétraiter les Données
 
