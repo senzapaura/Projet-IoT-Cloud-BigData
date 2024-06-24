@@ -155,4 +155,7 @@ pymongo==3.12.1
 
 ## Contacts
 
+-Khalil hamdouch Khalil.hamdouch@etu.u-pec.fr
+-Salah Bouazza salah.bouazza@etu.u-pec.fr
+-Celina Ouldmohamed Celina.ould-mohamed@etu.u-pec.fr
 
